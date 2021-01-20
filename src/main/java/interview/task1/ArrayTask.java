@@ -16,14 +16,15 @@ public class ArrayTask<T> {
 
     public List<T> addEveryRevertThirdElementOfArrayToList(Object[] array) {
         List<T> list = new ArrayList<>();
-        int[] newArray = new int[200];
+        Object[] newArray = new Object[200];
         int index = 0;
         for (int i = array.length - 1; i >= 0; i--) {
-            newArray[index] = (int) array[i];
+            newArray[index] = array[i];
+            index++;
         }
         for (int j = 0; j < newArray.length; j++) {
             if ((j + 1) % 3 == 0) {
-                list.add((T) array[j]);
+                list.add((T) newArray[j]);
             }
         }
         return list;
@@ -57,15 +58,20 @@ public class ArrayTask<T> {
         return list;
     }
 
-    public Map<Integer, Integer> addProductToMap(T[] array, int gt) {
-        Map<Integer, Integer> map = new HashMap<>();
+    public List<List<Integer>> addProductsToList(T[] array, int gt) {
+        List<List<Integer>> list = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j < array.length; j++) {
-                if ((int) array[i] * (int) array[j] > gt)
-                    map.put(i, j);
+                int product = (int) array[i] * (int) array[j];
+                if (product > gt) {
+                    List<Integer> productsList = new ArrayList<>();
+                    productsList.add(i);
+                    productsList.add(j);
+                    list.add(productsList);
+                }
             }
         }
-        return map;
+        return list;
     }
 
     public List<List<Integer>> createListOfIncreaseSequences(T[] array) {
