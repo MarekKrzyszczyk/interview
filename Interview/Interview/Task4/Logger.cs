@@ -1,20 +1,20 @@
-﻿//using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Interview.Task4
 {
-    //public class Logger : ILogger
-    //{
-    //    private readonly ILogOutput _logOutput;
+    public class Logger : ILogger
+    {
+        private readonly ILogOutput _logOutput;
 
-    //    public Logger(ILogOutput logOutput)
-    //    {
-    //        _logOutput = logOutput;
-    //    }
+        public Logger(ILogOutput logOutput)
+        {
+            _logOutput = logOutput;
+        }
 
-    //    public void Log(LogEntry logEntry)
-    //    {
-    //        var serializedLogEntry = JsonSerializer.Serialize(logEntry);
-    //        _logOutput.Save(serializedLogEntry);
-    //    }
-    //}
+        public void Log(LogEntry logEntry)
+        {
+            var serializedLogEntry = JsonSerializer.Serialize(logEntry);
+            _logOutput.Save(serializedLogEntry);
+        }
+    }
 }

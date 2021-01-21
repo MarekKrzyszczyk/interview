@@ -1,4 +1,5 @@
 ﻿using Interview.Task5;
+using Interview.Task4;
 using System;
 using System.Threading.Tasks;
 
@@ -10,8 +11,11 @@ namespace Interview
         {
             Console.WriteLine("Start");
 
-            var tester = new Tester5();
-            await tester.Test();
+            //var tester = new Tester5();
+            //await tester.Test();
+
+            var tester = new Tester4();
+            tester.Test();
 
             Console.WriteLine("Stop");
             Console.ReadKey();
