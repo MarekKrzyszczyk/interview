@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.Serialization.Json;
@@ -13,13 +14,23 @@ namespace Interview.Task5
         {
             var query = $"name/{countryName}";
             var countries = await GetData<CountryDto[]>(query);
+            List<CountryDto> list = new List<CountryDto>();
+            foreach (CountryDto i in countries)
+            {
+                if(i.Name.IndexOf(countryName, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    list.Add(i);
+                }
+            }
 
             if (countries.Length == 0)
             {
                 throw new Exception($"Nie udało się odnaleźć informacji na temat państwa: {countryName}.");
             }
 
-            return countries;
+            CountryDto[] countriesToPrint = list.ToArray();
+
+            return countriesToPrint;
         }
 
         private async Task<T> GetData<T>(string query)

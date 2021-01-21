@@ -25,6 +25,8 @@ namespace Interview.Task5
                 Console.WriteLine($"    - długość i szerokość geograficzna: {country.LatLng[0]} i {country.LatLng[1]} stopni");
                 Console.WriteLine($"    - gęstość zaludnienia: {density} osoby/km^2");
                 Console.WriteLine($"    - alpha3Code: {country.Alpha3Code}");
+
+              //  altSpelling
             }
         }
     }
