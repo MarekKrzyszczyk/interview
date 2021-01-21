@@ -9,11 +9,11 @@ namespace Interview.Task4
         {
             var fileLogOutput = new FileLogOutput("c:\\Users\\acer\\csharp\\log.txt");
               var logger = new Logger(fileLogOutput);
-            logger.Log(new LogEntry() { Message = "test", Tags = new[] { "t1", "t2" }, Timestamp = DateTime.UtcNow });
+            logger.Log(new LogEntry() { Message = "test", Tags = new[] { "t1", "t2" }, Timestamp = DateTime.UtcNow }, Type.Json);
 
             var consoleLogOutput = new ConsoleLogOutput();
             var consoleLogger = new Logger(consoleLogOutput);
-            consoleLogger.Log(new LogEntry() { Message = "test", Tags = new[] { "t1", "t2" }, Timestamp = DateTime.UtcNow });
+            consoleLogger.Log(new LogEntry() { Message = "test", Tags = new[] { "t1", "t2" }, Timestamp = DateTime.UtcNow }, Type.Xml);
         }
     }
 }
